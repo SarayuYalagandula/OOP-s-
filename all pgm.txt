@@ -1,0 +1,898 @@
+WEEK 1
+SOURCE CODE:
+import java.util.Scanner; 
+class Roots
+{ 
+public static void main(String args[]) 
+{ 
+int a,b,c; 
+double x,y;
+ Scanner s=new Scanner(System.in);
+System.out.println("Enter the values of a,b, and c");
+a=s.nextInt();
+b=s.nextInt();
+c=s.nextInt();
+double f=(b*b)-4*a*c;
+System.out.println("F value="+f);
+if(f<0)
+{ 
+ System.out.println("No real roots");
+}
+else
+{
+double l=Math.sqrt(f);
+ x=((-b-l)/(2*a));
+y=((-b+l)/(2*a));
+System.out.println("Roots of given equation:"+x+"\t"+y);
+ }
+}
+}
+
+b)SOURCE CODE:
+class Prime
+ {
+public static void main(String[] args)
+{
+int n,p;
+Scanner s=new Scanner(System.in);
+System.out.println("Enter upto which number prime numbers are 
+needed");
+n=s.nextInt();
+System.out.println("<------------Prime numbers------------->");
+for(int i=2;i<n;i++)
+{
+p=0;
+for(int j=2;j<i/2;j++)
+{
+if(i%j==0)
+p=1;
+}
+if(p==0)
+System.out.println(i);
+}
+ }
+
+
+WEEK 2
+
+SOURCE CODE:
+import java.util.Scanner;
+class ChkPalindrome
+{
+ public static void main(String args[])
+ {
+ String str, rev = "";
+ Scanner sc = new Scanner(System.in);
+ System.out.println("Enter a string:");
+ str = sc.nextLine();
+ int length = str.length();
+ for ( int i = length - 1; i >= 0; i-- )
+ rev = rev + str.charAt(i);
+
+ if (str.equals(rev))
+ System.out.println(str+" is a palindrome");
+ else
+ System.out.println(str+" is not a palindrome");
+ }
+}
+
+b)SOURCE CODE:
+import java.util.Scanner;
+ class SortStrings
+{
+ public static void main(String args[])
+ {
+ String temp;
+ Scanner SC = new Scanner(System.in);
+ 
+ System.out.print("Enter the value of N: ");
+ int N= SC.nextInt();
+ SC.nextLine(); //ignore next line character
+ 
+ String names[] = new String[N];
+ 
+ System.out.println("Enter names: ");
+for(int i=0; i<N; i++)
+ {
+ System.out.print("Enter name [ " + (i+1) +" ]: ");
+ names[i] = SC.nextLine();
+ }
+ 
+ //sorting strings 
+ 
+ for(int i=0; i<5; i++)
+ {
+ for(int j=1; j<5; j++)
+ {
+ if(names[j-1].compareTo(names[j])>0)
+ {
+ temp=names[j-1];
+ names[j-1]=names[j];
+ names[j]=temp;
+ }
+ }
+ }
+ 
+ System.out.println("\nSorted names are in Ascending Order: ");
+for(int i=0;i<N;i++)
+ {
+ System.out.println(names[i]);
+ }
+ }
+}
+
+
+		Week-3
+SOURCE CODE
+class MethodOverLoad
+ {
+ void calValue()
+ {
+ int x=20;
+ x=x*x;
+ System.out.println("Sqrt of x is:"+x);
+ }
+ void calValue(int y)
+ {
+ y=y*y*y;
+ System.out.println("Cube of y is:"+y);
+ }
+ void calValue(int m,int n)
+ {
+ int z=m*n;
+ System.out.println("Product of m and n is:"+z);
+ } }
+ class MOL
+ {
+ public static void main(String args[])
+ {
+ MethodOverLoad m=new MethodOverLoad();
+ m.calValue();
+ m.calValue(10,20);
+ m.calValue(10);
+ }
+ }
+
+*)SOURCE CODE
+class Human{
+ //Overridden method
+ public void eat()
+ {
+ System.out.println("Human is eating");
+ }
+}
+class Boy extends Human{
+ //Overriding method
+ public void eat(){
+ System.out.println("Boy is eating");
+ }
+ public static void main( String args[]) {
+ Boy obj = new Boy();
+ //This will call the child class version of eat()
+ obj.eat();
+ }
+}
+
+(B)AIM: To write a java program to implement multiple inheritance using 
+interface.
+
+SOURCE CODE
+interface Printable{ 
+void print(); 
+} 
+interface Showable{ 
+void show(); 
+} 
+class multiple_inheritance implements Printable, Showable{ 
+public void print(){System.out.println("Hello");} 
+public void show(){System.out.println("Welcome");} 
+ public static void main(String args[]){ 
+multiple_inheritance obj = new multiple_inheritance (); 
+obj.print(); 
+obj.show(); } 
+}
+
+
+Week-4
+SOURCE CODE
+package shailu; 
+public class Usageofclasspath{ 
+ public static void main(String args[]){ 
+ System.out.println("Welcome to package"); 
+ } 
+}
+
+
+(B)AIM: To write a Java program to create an abstract clas
+SOURCE CODE:
+abstract class Shape 
+{
+int a=2;
+int b=4;
+abstract void printArea();
+}
+class Rectangle extends Shape
+{
+void printArea() 
+{
+ int r=a*b;
+System.out.println("Area for Rectangle="+r);
+}
+}
+class Triangle extends Shape
+{
+void printArea() 
+{
+ int t=(a*b)/2;
+ System.out.println("Area for Triangle="+t);
+ }
+}
+class Circle extends Shape
+{
+void printArea() 
+{
+ int area=(int)(3.14*a*a);
+ System.out.println("Area for Circle with radius "+a+" is= "+area);
+ }
+ }
+public class AbstractDemo 
+{
+public static void main(String args[]) 
+{
+ Rectangle r= new Rectangle();
+ Triangle t= new Triangle();
+ Circle c=new Circle();
+ Shape s;
+s=r;
+ s.printArea();
+ s=t;
+ s.printArea();
+ s=c;
+ s.printArea();
+ }
+}
+
+
+Week 5
+source code :
+class TestFinallyBlock { 
+ public static void main(String args[]){ 
+ try{ 
+//below code do not throw any exception 
+ int data=25/5; 
+ System.out.println(data); 
+ }
+//catch won't be executed 
+ catch(NullPointerException e){ 
+System.out.println(e); 
+} 
+//executed regardless of exception occurred or not 
+ finally { 
+System.out.println("finally block is always executed"); 
+} 
+ System.out.println("rest of phe code..."); 
+ } 
+} 
+
+
+5.B)SOURCE CODE:
+class InvalidAgeException extends Exception{ 
+ InvalidAgeException(String s){ 
+ super(s); 
+ } 
+} 
+class TestCustomException1{ 
+ static void validate(int age)throws InvalidAgeException{ 
+ if(age<18) 
+ throw new InvalidAgeException("not valid"); 
+else 
+ System.out.println("welcome to vote"); 
+ } 
+ 
+ public static void main(String args[]){ 
+ try{ 
+ validate(13); 
+ }catch(Exception m){System.out.println("Exception occured: "+m);} 
+ System.out.println("Custom exception Demo completed..."); 
+ } 
+}
+
+
+Week 6
+SOURCE CODE:
+public class ProducerConsumerTest {
+ public static void main(String[] args) {
+ CubbyHole c = new CubbyHole();
+ Producer p1 = new Producer(c, 1);
+ Consumer c1 = new Consumer(c, 1);
+ p1.start(); 
+ c1.start();
+ }
+}
+class CubbyHole {
+ private int contents;
+ private boolean available = false;
+ 
+ public synchronized int get() {
+ while (available == false) {
+ try {
+ wait();
+ } catch (InterruptedException e) {}
+ }
+ available = false;
+ notifyAll();
+ return contents;
+ }
+ public synchronized void put(int value) {
+ while (available == true) {
+ try {
+wait();
+ } catch (InterruptedException e) { } 
+ }
+ contents = value;
+ available = true;
+ notifyAll();
+ }
+}
+class Consumer extends Thread {
+ private CubbyHole cubbyhole;
+ private int number;
+ 
+ public Consumer(CubbyHole c, int number) {
+ cubbyhole = c;
+ this.number = number;
+ }
+ public void run() {
+ int value = 0;
+ for (int i = 0; i < 10; i++) {
+ value = cubbyhole.get();
+ System.out.println("Consumer #" + this.number + " got: " + value);
+ }
+ }
+}
+class Producer extends Thread {
+ private CubbyHole cubbyhole;
+ private int number;
+ public Producer(CubbyHole c, int number) {
+ cubbyhole = c;
+ this.number = number;
+} 
+ public void run() {
+ for (int i = 0; i < 10; i++) {
+ cubbyhole.put(i);
+ System.out.println("Producer #" + this.number + " put: " + i);
+ try {
+ sleep((int)(Math.random() * 100));
+ } catch (InterruptedException e) { }
+ } 
+ }
+}
+
+
+
+Week 7
+SOURCE CODE:
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*<applet code="MouseEvents" width=300 height=300>
+</applet>*/
+public class MouseEvents extends Applet implements MouseListener, 
+MouseMotionListener
+{
+ String msg = "";
+int mouseX = 0, mouseY = 0; // coordinates of mouse
+public void init()
+{
+ addMouseListener(this);
+addMouseMotionListener(this);
+ }
+public void mouseClicked(MouseEvent me)
+{
+ mouseX = 0;
+mouseY = 10;
+msg = "Mouse clicked.";
+repaint();
+ }
+public void mouseEntered(MouseEvent me)
+{
+ mouseX = 0;
+mouseY = 10;
+msg = "Mouse entered.";
+repaint();
+ }
+public void mouseExited(MouseEvent me)
+{
+ mouseX = 0;
+mouseY = 10;
+msg = "Mouse exited.";
+repaint();
+ }
+public void mousePressed(MouseEvent me)
+{
+ mouseX = me.getX();
+mouseY = me.getY();
+msg = "Down";
+repaint();
+ }
+public void mouseReleased(MouseEvent me)
+{
+ mouseX = me.getX();
+mouseY = me.getY();
+msg = "Up";
+repaint();
+ }
+public void mouseDragged(MouseEvent me)
+{
+ mouseX = me.getX();
+mouseY = me.getY();
+msg = "*";
+showStatus("Dragging mouse at " + mouseX + ", " + mouseY);
+repaint();
+ }
+public void mouseMoved(MouseEvent me)
+{
+ showStatus("Moving mouse at " + me.getX() + ", " + me.getY());
+ }
+public void paint(Graphics g)
+{
+ g.drawString(msg, mouseX, mouseY);
+ }
+}
+
+
+*)a) keyPressed()
+b) keyReleased()
+SOURCE CODE:
+import java.awt.*; 
+import java.awt.event.*; 
+public class KeyListenerExample extends Frame implements KeyListener{ 
+ Label l; 
+ TextArea area; 
+ KeyListenerExample(){ 
+ l=new Label(); 
+ l.setBounds(20,50,100,20); 
+ area=new TextArea(); 
+ area.setBounds(20,80,300, 300); 
+ area.addKeyListener(this); 
+ add(l);
+ add(area); 
+ setSize(400,400); 
+ setLayout(null); 
+ setVisible(true); 
+ } 
+public void keyPressed(KeyEvent e) { 
+ l.setText("Key Pressed"); 
+ } 
+public void keyReleased(KeyEvent e) { 
+ l.setText("Key Released"); 
+ }
+public void keyTyped(KeyEvent e) { 
+ l.setText("Key Typed"); 
+ } 
+ 
+ public static void main(String[] args) { 
+ new KeyListenerExample(); 
+ } 
+} 
+
+Week 8
+
+SOURCE CODE:
+import java.applet.*;
+import java.awt.*;
+/*<applet code="SimpleApplet" height=300 width=300>
+</applet>*/
+public class SimpleApplet extends Applet{
+ public void paint(Graphics g)
+{
+ g.setColor(Color.pink);
+setBackground(Color.yellow);
+g.drawString("HI APPLET Program",80,150);
+}
+}
+
+b)import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+/*<applet code=Fact width=500 height=500> </applet>*/
+public class Fact extends Applet implements ActionListener
+{
+ Button b1,b2;
+Label l1,l2;
+ TextField tf1,tf2;
+ public void init()
+{ 
+ b1=new Button("COMPUTE");
+ b1.addActionListener(this);
+ b2=new Button("CLEAR");
+b2.addActionListener(this);
+tf1=new TextField(20);
+tf2=new TextField(20);
+l1=new Label("NUMBER");
+l2=new Label("RESULT");
+ add(l1);
+ add(tf1);
+ add(l2);
+ add(tf2);
+add(b1);
+add(b2);
+ }
+public void actionPerformed(ActionEvent e)
+{
+ if(e.getSource()==b1)
+{
+ int a=Integer.parseInt(tf1.getText());
+int fact=1;
+for(int i=1;i<=a;i++)
+fact*=i;
+ tf2.setText(""+fact);
+ }
+else
+{
+ tf1.setText("");
+tf2.setText("");
+ } } }
+
+Week 9
+SOURCE CODE:
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+/*<applet code=Div width=500 height=500>
+</applet>*/
+public class Div extends Applet implements ActionListener
+{
+ Button b1,b2;
+Label l1,l2,l3;
+TextField tf1,tf2,tf3;
+String msg;
+public void init()
+{ 
+ b1=new Button("COMPUTE");
+b1.addActionListener(this);
+b2=new Button("CLEAR");
+b2.addActionListener(this);
+tf1=new TextField(20);
+tf2=new TextField(20);
+ tf3=new TextField(20);
+ l1=new Label("NUMBER1");
+ l2=new Label("NUMBER2");
+ l3=new Label("RESULT");
+add(l1);
+add(tf1);
+add(l2);
+add(tf2);
+add(l3);
+add(tf3);
+add(b1);
+add(b2);
+}
+public void actionPerformed(ActionEvent ae)
+{
+ if(ae.getSource()==b1)
+ {
+try
+{ 
+int a=Integer.parseInt(tf1.getText());
+int b=Integer.parseInt(tf2.getText());
+int c=a/b;
+tf3.setText(""+c);
+}
+catch(NumberFormatException ex)
+{
+tf3.setText(" ");
+JFrame f=new JFrame(); 
+JOptionPane.showMessageDialog(f,"Enter only numbers");
+repaint();
+}
+catch(ArithmeticException ex)
+{
+tf3.setText(" ");
+JFrame f=new JFrame(); 
+JOptionPane.showMessageDialog(f,"Enter second value non zero");
+repaint();
+}
+}
+else
+{
+ tf1.setText("");
+ tf2.setText("");
+ tf3.setText("");
+ msg="";
+ repaint();
+}
+}
+public void paint(Graphics g)
+{
+g.drawString(msg,30,70);
+}
+}
+
+Week 10
+SOURCE CODE:
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*<applet code="Traffic" width=400 height=400>
+</applet>*/
+public class Traffic extends Applet implements ItemListener
+{
+int colourNum;
+ CheckboxGroup cbg;
+Checkbox red,yellow,green;
+String msg=" ";
+public void init()
+{
+ cbg=new CheckboxGroup();
+ red=new Checkbox("RED",cbg,true);
+yellow=new Checkbox("YELLOW",cbg,true);
+green=new Checkbox("GREEN",cbg,true);
+add(red);
+add(yellow);
+add(green);
+red.addItemListener(this);
+yellow.addItemListener(this);
+green.addItemListener(this);
+}
+ public void itemStateChanged(ItemEvent ie)
+{
+ if (ie.getSource()==red)
+ colourNum=1;
+ else if (ie.getSource()==yellow)
+ colourNum=2;
+ else
+ colourNum=3;
+ repaint();
+ }
+public void paint (Graphics g) 
+ {
+ g.setColor(Color.BLACK);
+ g.fillOval (150, 70, 50, 50); // red light
+ g.fillOval (150, 150, 50, 50); // yellow light
+ g.fillOval (150, 230, 50, 50); // green light
+ switch (colourNum)
+ {
+ case 1:g.setColor (Color.RED);
+ g.fillOval (150,70,50,50);
+msg="STOP";
+g.drawString(msg,210,100);
+break;
+ case 2:g.setColor(Color.YELLOW);
+ g.fillOval (150,150,50,50);
+g.setColor (Color.red);
+msg="READY";
+g.drawString(msg,210,180);
+break;
+ case 3:g.setColor(Color.GREEN);
+ g.fillOval (150,230,50,50);
+ g.setColor (Color.red);
+msg="GO";
+g.drawString(msg,210,260);
+break;
+ }
+}
+}
+
+Week 11
+SOURCE CODE:
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/* 
+<applet code="Calc" height=300 width=300>
+</applet>
+*/
+public class Calc extends Applet implements ActionListener
+{
+ TextField tf;
+double arg=0;
+String op="=";
+boolean start=true;
+public void init()
+{
+ setLayout(new BorderLayout());
+tf=new TextField("0");
+add(tf,BorderLayout.NORTH);
+Panel p=new Panel();
+p.setLayout(new GridLayout(4,4));
+String buttons="123/456*789-0.+=";
+for(int i=0;i<buttons.length();i++)
+{
+ Button b=new Button(buttons.substring(i,i+1));
+p.add(b);
+b.addActionListener(this);
+ }
+add(p);
+ }
+public void actionPerformed(ActionEvent ae)
+{
+ String s=ae.getActionCommand();
+if('0'<=s.charAt(0)&&s.charAt(0)<='9'||s.equals("."))
+{
+ if(start)
+tf.setText(s);
+else
+tf.setText(tf.getText()+s);
+start=false;
+ }
+else
+{
+ calcu(Double.parseDouble(tf.getText()));
+op=s;
+start=true;
+ } 
+ }
+public void calcu(double n)
+{
+ if(op.equals("+"))
+ arg+=n;
+ else
+if(op.equals("-"))
+arg-=n;
+else
+if(op.equals("*"))
+arg*=n;
+else
+if(op.equals("/"))
+{
+try{
+ arg/=n;
+}
+ catch(ArithmeticException e)
+ {
+ tf.setText("Arithmetic Exception");
+ }
+ }
+ else
+if(op.equals("="))
+arg=n;
+tf.setText(""+arg);
+ }}
+OUTPUT
+
+
+Week 12
+SOURCE CODE: JList
+import javax.swing.*; 
+public class ListExmp 
+{ 
+ ListExmp(){ 
+ JFrame f= new JFrame(); 
+DefaultListModel<String> l1 = new DefaultListModel<>(); 
+ l1.addElement("Item1"); 
+ l1.addElement("Item2"); 
+ l1.addElement("Item3"); 
+ l1.addElement("Item4"); 
+ JList<String> list = new JList<>(l1); 
+ list.setBounds(100,100, 75,75); 
+ f.add(list); 
+f.setSize(400,400); 
+f.setLayout(null); 
+f.setVisible(true); 
+ f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ } 
+ 
+ public static void main(String args[]) 
+ {
+new ListExmp(); 
+ }
+}
+
+
+jtree)SOURCE CODE: JTree
+import javax.swing.*; 
+import javax.swing.tree.DefaultMutableTreeNode; 
+public class TreeEx
+{ 
+JFrame f; 
+TreeEx(){ 
+ f=new JFrame(); 
+DefaultMutableTreeNode style=new DefaultMutableTreeNode("Style"); 
+DefaultMutableTreeNode color=new DefaultMutableTreeNode("color"); 
+DefaultMutableTreeNode font=new DefaultMutableTreeNode("font"); 
+style.add(color); 
+style.add(font); 
+DefaultMutableTreeNode red=new DefaultMutableTreeNode("red"); 
+DefaultMutableTreeNode blue=new DefaultMutableTreeNode("blue"); 
+DefaultMutableTreeNode green=new DefaultMutableTreeNode("green"); 
+color.add(red);
+color.add(blue);
+color.add(green); 
+JTree jt=new JTree(style); 
+f.add(jt); 
+f.setSize(250,250); 
+f.setVisible(true); 
+ f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+} 
+public static void main(String[] args) { 
+ new TreeEx(); 
+}
+} 
+OUTPUT: JTree
+
+
+JTable)
+SOURCE CODE: JTable
+import javax.swing.*;
+public class TableEx
+ {
+ JFrame f;
+ TableEx()
+ {
+ f=new JFrame();
+String data[][]={ {"501","ravi","50000"},
+ {"502","raju","70000"},
+ {"503","ramu","90000"}};
+ String column[]={"ID","NAME","SALARY"}; 
+JTable jt=new JTable(data,column);
+ JScrollPane sp=new JScrollPane(jt); 
+ f.add(sp); 
+ f.setSize(300,400);
+ f.setVisible(true);
+ f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ } 
+public static void main(String[] args)
+ {
+ new TableEx();
+ }
+ }
+
+
+Week 13
+SOURCE CODE: JTabbedPane
+ import javax.swing.*; 
+public class TabbedPaneExample { 
+JFrame f; 
+ TabbedPaneExample(){ 
+f=new JFrame(); 
+ JTextArea ta=new JTextArea(200,200); 
+ JPanel p1=new JPanel(); 
+ p1.add(ta); 
+ JPanel p2=new JPanel(); 
+JPanel p3=new JPanel(); 
+ JTabbedPane tp=new JTabbedPane(); 
+ tp.setBounds(50,50,200,200); 
+ tp.add("main",p1); 
+ tp.add("visit",p2); 
+ tp.add("help",p3);
+ f.add(tp); 
+ f.setSize(400,400); 
+ f.setLayout(null); 
+ f.setVisible(true); 
+ f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+} 
+public static void main(String[] args) { 
+ new TabbedPaneExample(); 
+} } 
+JTabbedPane OUTPUT:
+
+
+JScrollPane)SOURCE CODE: JScrollPane
+import javax.swing.*; 
+public class TabbedPaneExample { 
+JFrame f; 
+ TabbedPaneExample(){ 
+ f=new JFrame(); 
+ JTextArea ta=new JTextArea(200,200); 
+ JPanel p1=new JPanel(); 
+ p1.add(ta); 
+ JPanel p2=new JPanel(); 
+JPanel p3=new JPanel(); 
+ JTabbedPane tp=new JTabbedPane(); 
+ tp.setBounds(50,50,200,200); 
+ tp.add("main",p1); 
+ tp.add("visit",p2); 
+ tp.add("help",p3);
+ f.add(tp); 
+ f.setSize(400,400); 
+ f.setLayout(null); 
+ f.setVisible(true); 
+ f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+} 
+public static void main(String[] args) { 
+ new TabbedPaneExample(); 
+} } 
+OUTPUT: JScrollPane
+
